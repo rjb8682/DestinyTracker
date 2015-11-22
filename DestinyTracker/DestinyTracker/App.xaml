@@ -32,7 +32,7 @@
                                     <VisualState x:Name="PointerOver">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="(Grid.Background)">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#e02f2f"/>
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#404040"/>
                                             </ObjectAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualState>
@@ -57,7 +57,7 @@
                                     <VisualState x:Name="CheckedPointerOver">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="(Grid.Background)">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#e02f2f"/>
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#404040"/>
                                             </ObjectAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualState>
@@ -99,7 +99,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ListViewItem">
-                        <Grid Name="Container" Background="Transparent">
+                        <Grid Name="Container" Background="Transparent" Opacity="0.75">
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal"/>
@@ -115,42 +115,22 @@
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Container"
                                                                            Storyboard.TargetProperty="Background">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#404040"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Container"
-                                                                           Storyboard.TargetProperty="BorderThickness">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="5 0 0 0"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Container"
-                                                                           Storyboard.TargetProperty="BorderBrush">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#C61A1B"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
-                                                                           Storyboard.TargetProperty="Padding">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="-5 0 0 0"/>
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAccentBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Selected">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Container"
-                                                                           Storyboard.TargetProperty="BorderThickness">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="5 0 0 0"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Container"
-                                                                           Storyboard.TargetProperty="BorderBrush">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#C61A1B"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
-                                                                           Storyboard.TargetProperty="Padding">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="-5 0 0 0"/>
+                                                                           Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightListAccentHighBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
                             <ContentPresenter x:Name="ContentPresenter" Content="{TemplateBinding Content}"
-                                              VerticalAlignment="Center"/>
+                                              VerticalAlignment="Center" Height="48"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>

@@ -93,6 +93,7 @@
         
         <ToggleButton Grid.Row="0" x:Name="TogglePaneButton"
                       TabIndex="1"
+                      Background="#2B2B2B"
                       Style="{StaticResource SplitViewTogglePaneButtonStyle}"
                       IsChecked="{Binding IsPaneOpen, ElementName=RootSplitView, Mode=TwoWay}"
                       AutomationProperties.Name="Menu"

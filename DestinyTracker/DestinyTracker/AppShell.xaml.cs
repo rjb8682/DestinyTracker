@@ -8,6 +8,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Foundation.Metadata;
 using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Automation;
 using Windows.UI.Xaml.Controls;
@@ -18,6 +19,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using DestinyTracker.CustomControls;
+using DestinyTracker.Helpers;
 using DestinyTracker.Models;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -52,8 +54,36 @@ namespace DestinyTracker
             HasHardwareButton = ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons");
             DeviceFamily = Windows.System.Profile.AnalyticsInfo.VersionInfo.DeviceFamily;
 
+            ColorTitleBar();
+
             NavMenuList.ItemsSource = _navigationList;
             NavMenuList.SelectedIndex = 0;
+        }
+
+        private static void ColorTitleBar()
+        {
+            var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+
+            // Coloring titlebar
+            // Title bar colors. Alpha must be 255.
+            titleBar.BackgroundColor = Utilities.GetColorFromHex("#D6D6D6");
+            titleBar.ForegroundColor = Utilities.GetColorFromHex("#2B2B2B");
+            titleBar.InactiveBackgroundColor = Utilities.GetColorFromHex("#E3E3E3");
+            titleBar.InactiveForegroundColor = Utilities.GetColorFromHex("#828282");
+
+            // Title bar button background colors. Alpha is respected when the view is extended
+            // into the title bar (see scenario 2). Otherwise, Alpha is ignored and treated as if it were 255.
+            const byte buttonAlpha = 255;
+            titleBar.ButtonBackgroundColor = Utilities.GetColorFromHex("#D6D6D6", buttonAlpha);
+            titleBar.ButtonHoverBackgroundColor = Utilities.GetColorFromHex("#A8A8A8", buttonAlpha);
+            titleBar.ButtonPressedBackgroundColor = Utilities.GetColorFromHex("#8F8F8F", buttonAlpha);
+            titleBar.ButtonInactiveBackgroundColor = Utilities.GetColorFromHex("#E3E3E3", buttonAlpha);
+
+            // Title bar button foreground colors. Alpha must be 255.
+            titleBar.ButtonForegroundColor = Utilities.GetColorFromHex("#2B2B2B", buttonAlpha);
+            titleBar.ButtonHoverForegroundColor = Utilities.GetColorFromHex("#2B2B2B", buttonAlpha);
+            titleBar.ButtonPressedForegroundColor = Utilities.GetColorFromHex("#2B2B2B", buttonAlpha);
+            titleBar.ButtonInactiveForegroundColor = Utilities.GetColorFromHex("#8C8C8C", buttonAlpha);
         }
 
         private void SystemNavigationManager_BackRequested(object sender, BackRequestedEventArgs e)
