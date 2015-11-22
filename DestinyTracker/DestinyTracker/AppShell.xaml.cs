@@ -173,11 +173,6 @@ namespace DestinyTracker
             SetBackButtonStatus();
         }
 
-        private void AppShell_OnKeyDown(object sender, KeyRoutedEventArgs e)
-        {
-            
-        }
-
         private static void Page_Loaded(object sender, RoutedEventArgs e)
         {
             ((Page)sender).Focus(FocusState.Programmatic);
