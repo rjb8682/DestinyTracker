@@ -8,6 +8,69 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="AdaptiveStates">
+                <VisualState x:Name="DefaultState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="PageTitleBar.Margin" Value="48 0 0 0"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Name="PageTitleBar" Grid.Row="0" Grid.ColumnSpan="2" Background="#f2f2f2" Height="48" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="48"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" Name="pageTitle" Text="Home" VerticalAlignment="Center"
+                           Margin="10 0 0 0" FontSize="14" FontWeight="SemiBold"/>
+            <Grid Name="actionCommands" Grid.Column="2" HorizontalAlignment="Right">
+                
+            </Grid>
+        </Grid>
         
+        <Grid Grid.Row="1" HorizontalAlignment="Left" Margin="20" Padding="10"
+                    Background="LightGray" MaxWidth="494" MaxHeight="328" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <Viewbox>
+                <Grid>
+                    <Image Name="Char1Image" Width="474" Height="96"/>
+                    <Image Name="Char1EmblemImage" Height="96" Width="96" HorizontalAlignment="Left"/>
+                </Grid>
+            </Viewbox>
+            <Viewbox Grid.Row="1" Margin="0 5 0 0">
+                <Grid>
+                    <Image Name="Char2Image" Width="474" Height="96"/>
+                    <Image Name="Char2EmblemImage" Height="96" Width="96" HorizontalAlignment="Left"/>
+                </Grid>
+            </Viewbox>
+            <Viewbox Grid.Row="2" Margin="0 5 0 0">
+                <Grid>
+                    <Image Name="Char3Image" Width="474" Height="96"/>
+                    <Image Name="Char3EmblemImage" Height="96" Width="96" HorizontalAlignment="Left"/>
+                </Grid>
+            </Viewbox>
+        </Grid>
     </Grid>
 </Page>

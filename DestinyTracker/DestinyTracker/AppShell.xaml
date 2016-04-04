@@ -24,7 +24,8 @@
                 <FontIcon x:Name="Glyph" FontSize="16" Glyph="{Binding SymbolAsChar}"
                           VerticalAlignment="Center" HorizontalAlignment="Center"
                           ToolTipService.ToolTip="{Binding Label}" Foreground="White"/>
-                <TextBlock x:Name="Text" Grid.Column="1" Text="{Binding Label}" Foreground="White"/>
+                <TextBlock x:Name="Text" Grid.Column="1" Text="{Binding Label}" Foreground="White"
+                           VerticalAlignment="Center"/>
             </Grid>
         </DataTemplate>
     </Page.Resources>

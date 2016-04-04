@@ -43,7 +43,19 @@ namespace DestinyTracker
                     Symbol = Symbol.Home,
                     Label = "Home",
                     DestPage = typeof(MainPage)
-                }, 
+                },
+                new NavMenuItem
+                {
+                    Symbol = Symbol.List,
+                    Label = "Inventory",
+                    DestPage = null
+                },
+                new NavMenuItem
+                {
+                    Symbol = Symbol.Contact,
+                    Label = "Statistics",
+                    DestPage = null
+                },
             }); 
 
         public AppShell()
@@ -133,7 +145,6 @@ namespace DestinyTracker
 
         private void OnNavigatingToPage(object sender, NavigatingCancelEventArgs e)
         {
-
             if (e.NavigationMode == NavigationMode.Back)
             {
                 //return;

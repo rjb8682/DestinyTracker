@@ -44,7 +44,7 @@ namespace DestinyTracker
                 apiKeyExists = false;
             }
 
-            if (!apiKeyExists)
+            if (apiKeyExists)
             {
                 // Move on to the app
                 App.ApiKey = apiKey;
@@ -59,7 +59,14 @@ namespace DestinyTracker
 
         public void ShowSignInScreen()
         {
-            
+            RootFrame.BackStack.Clear();
+
+            RootFrame.Navigate(typeof(SignInPage), null);
+
+            SignInPage.loginSuccesful += (o, a) =>
+            {
+                GoToApp(typeof(MainPage), "From Login");
+            };
         }
 
         public void GoToApp(Type whereTo, string args = null)

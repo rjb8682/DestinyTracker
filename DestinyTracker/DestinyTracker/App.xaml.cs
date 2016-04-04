@@ -26,6 +26,7 @@ namespace DestinyTracker
     {
         public static string ApiKey = string.Empty;
         public static readonly Color BryxRedColor = Color.FromArgb(255, 198, 26, 27);
+        public static string MemberId = string.Empty;
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
